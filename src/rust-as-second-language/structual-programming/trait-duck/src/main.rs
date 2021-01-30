@@ -56,5 +56,6 @@ fn main() {
     duck_go(duck);
 
     let f = 0.0;
+    println!("{}", f);
     // duck_go(f); DuckLikeを実装していない型は渡せない
 }
