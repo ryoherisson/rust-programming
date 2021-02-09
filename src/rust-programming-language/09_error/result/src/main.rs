@@ -47,6 +47,28 @@ fn read_username_from_file() -> Result<String, io::Error> {
 //     Err(E),
 // }
 
+// Guess方の定義内にError関数を書く
+pub struct Guess {
+    value: u32,
+}
+
+impl Guess {
+    pub fn new(value: u32) -> Guess {
+        if value < 1 || value > 100 {
+            // 予想の値は1から100の範囲でなければなりませんが、{}でした
+            panic!("Guess value must be between 1 and 100, got {}.", value);
+        }
+
+        Guess {
+            value
+        }
+    }
+
+    pub fn value(&self) -> u32 {
+        self.value
+    }
+}
+
 fn main() {
     // rootはresult directory直下
     let f = File::open("hello.txt");
